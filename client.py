@@ -18,6 +18,7 @@ def main():
             ...
 
         sock.send(input('Введите что хотите отправить\n-> ').encode())
+        print(0)
 
 
 if __name__ == '__main__':

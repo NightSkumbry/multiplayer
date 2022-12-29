@@ -4,12 +4,12 @@ from additional.additional import Prefixes
 
 
 class Player:
-    def __init__(self, addr, sk):
+    def __init__(self, addr: tuple[str, int], sk: socket.socket):
         print(addr, type(addr))
         print(sk, type(sk))
-        self.addr = addr
-        self.registered = False
-        self.socket = sk
+        self.addr: tuple[str, int] = addr
+        self.registered: bool = False
+        self.socket: socket.socket = sk
 
 
 unregistered_player_sockets: list[Player] = []
@@ -34,9 +34,15 @@ def main():
             new_s.send(f'{Prefixes.command}file_setup'.encode())
             new_s.send(f'{Prefixes.text}Вам необходимо пройти регистрацию. Введите ваш ник в соответствующие поле таблицы.'.encode())
         except BlockingIOError:
-            print(0)
-        else:
-            print(1)
+            ...
+
+        for p in unregistered_player_sockets:
+            try:
+                data = p.socket.recv(1024).decode()
+            except BlockingIOError:
+                ...
+            else:
+                print(data)
 
 
 if __name__ == '__main__':
