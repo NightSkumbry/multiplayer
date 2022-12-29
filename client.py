@@ -14,10 +14,10 @@ def main():
         try:
             data = sock.recv(1024).decode()
             print(data)
-            print(1)
         except BlockingIOError:
-            print(0)
-            raise
+            ...
+
+        sock.send(input('Введите что хотите отправить\n-> ').encode())
 
 
 if __name__ == '__main__':
