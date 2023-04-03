@@ -1,0 +1,11 @@
+{
+    "ini": {
+        "language_name": "Русский",
+        "version": "0.0.1"
+    },
+    "text": {
+        "OPT_SELECT_LANG": "Выберите язык",
+        "CONFIRM": "Падтвердить",
+        "SERV_CONNECTING": "Подключение к серверу..."
+    }
+}
